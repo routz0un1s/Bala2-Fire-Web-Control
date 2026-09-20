@@ -61,7 +61,7 @@ The control page contains an on-screen joystick and directional buttons.
 
 ---
 
-  ##Joystick
+  ## Joystick
 Drag the joystick in the desired direction to control the Bala2-Fire.
 
 The joystick can provide both forward/backward movement and turning at the same time.
@@ -85,7 +85,7 @@ When the joystick is released, it automatically returns to its center position a
 
 ---
 
-  ##PID Control
+  ## PID Control
 The web controller does not replace the Bala2Fire's balancing system.
 
 Movement commands are converted into speed and turning targets. The existing PID control system continues to calculate the motor output required to maintain the robot's balance.
@@ -112,7 +112,7 @@ The PID control loop runs approximately every 5 ms (200 Hz).
 
 ---
 
-  ##Command Timeout
+  ## Command Timeout
 The controller includes a 300 ms command timeout.
 
 If no movement command is received for 300 ms, the requested speed and turning values are reset to zero.
@@ -123,7 +123,7 @@ This means that if communication with the browser is interrupted, an old movemen
 
 ---
 
-  ##Control Commands
+  ## Control Commands
 The web interface sends movement commands using HTTP requests.
 
 The command endpoint is:
@@ -153,7 +153,7 @@ x=0,   y=0    → stop
 
 ---
 
-  ##Balancing and Turning
+  ## Balancing and Turning
 The balance PID and speed PID outputs are combined to produce the motor output.
 
 Turning is then applied differentially:
@@ -167,7 +167,7 @@ The motor PWM output is limited to:
 
 ---
 
-  ##Fall Protection
+  ## Fall Protection
 The controller stops the motors when the robot angle exceeds:
 
 ±70 degrees
@@ -182,7 +182,7 @@ The speed PID integral is cleared.
 
 ---
 
-  ##Calibration
+  ## Calibration
 The Bala2-Fire calibration system is initialized during startup using:
 
 #include "calibration.h"
@@ -211,7 +211,7 @@ For the official calibration procedure and further information:
 
 ---
 
-  ##Buttons
+  ## Buttons
 Button	Function
 A	Increase balance setpoint by 0.25
 B	Save calibration center angle
@@ -222,7 +222,7 @@ Holding Button C during startup enters the charging mode implemented by the firm
 ---
 
 
-  ##Display
+  ## Display
 The M5Stack display shows the Bala2-Fire image during startup.
 
 The firmware also displays a live waveform representing the current balancing angle.
@@ -231,7 +231,7 @@ The waveform is updated approximately every 10 ms.
 
 ---
 
-  ##Serial Monitor
+  ## Serial Monitor
 The firmware uses:
 
 115200 baud
@@ -250,7 +250,7 @@ The reset reason can also help diagnose unexpected resets, including brownout re
 
 ---
 
-  ##Project Dependencies
+   ## Project Dependencies
 The project uses the following libraries and modules:
 
 #define M5STACK_MPU6886
@@ -267,7 +267,9 @@ The project uses the following libraries and modules:
 #include "calibration.h"
 #include "esp_system.h"
 
-Acknowledgements
+---
+
+  ## Acknowledgements
 This project is based on and extends the original M5Stack Bala2Fire Arduino example.
 
 The following components are based on the M5Stack Bala2-Fire example:
@@ -290,14 +292,14 @@ The web interface, Wi-Fi access point, joystick, HTTP control commands, command 
 
 Original M5Stack source and documentation:
 
-https://github.com/m5stack/M5-ProductExampleCodes/tree/master?tab=readme-ov-file
+[M5Stack Example Codes](https://github.com/m5stack/M5-ProductExampleCodes/tree/master?tab=readme-ov-file)
 
 [M5Stack Bala2-Fire Documentation](https://docs.m5stack.com/en/app/bala2fire)
 
 ---
 
 
-  ##Safety
+  ## Safety
 
 Before testing:
 
@@ -315,7 +317,9 @@ Keep access to the robot's power switch or battery disconnect.
 
 Do not rely on the 300 ms command timeout as the only emergency stop.
 
-License
+---
+
+## License
 MIT License
 
 Copyright (c) 2026 Bala2Fire Web Control contributors
